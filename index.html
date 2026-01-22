@@ -21,7 +21,6 @@
         .badge-min { background: #64748b; color: white; } 
         .badge-rec { background: #a50034; color: white; } 
         
-        /* 말풍선 애니메이션 (위아래 부유 효과) */
         .bubble-float { animation: bubbleFloat 2s ease-in-out infinite; }
         @keyframes bubbleFloat {
             0%, 100% { transform: translateY(0); }
@@ -35,11 +34,11 @@
         <div class="max-w-md mx-auto flex items-end justify-between gap-2">
             <div class="flex-1 min-w-0">
                 <h1 class="text-lg sm:text-xl font-extrabold tracking-tight leading-tight truncate">LG전자 온라인 인증점<br>노트북랜드21</h1>
-                <p class="text-white/80 text-[10px] sm:text-xs mt-2 font-medium tracking-wide">🤖 스마트 봇 추천</p>
+                <p class="text-white/80 text-xs mt-2 font-medium tracking-wide">🤖 스마트 봇 추천</p>
             </div>
             
             <div class="relative flex-shrink-0">
-                <div class="absolute bottom-full right-0 mb-3 bg-white text-[#a50034] text-[10px] font-bold py-2 px-3 rounded-2xl shadow-xl whitespace-nowrap bubble-float border border-red-50">
+                <div class="absolute bottom-full right-0 mb-3 bg-white text-[#a50034] text-xs font-bold py-2 px-3 rounded-2xl shadow-xl whitespace-nowrap bubble-float border border-red-50">
                     궁금하신 사항은 네이버톡톡으로 전문가와 상담하세요
                     <div class="absolute bottom-[-6px] right-6 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-white"></div>
                 </div>
@@ -56,7 +55,7 @@
             <div class="flex">
                 <div class="flex-shrink-0"><i class="fas fa-exclamation-circle text-red-600"></i></div>
                 <div class="ml-3">
-                    <p class="text-[12px] text-red-900 leading-snug font-bold">
+                    <p class="text-sm text-red-900 leading-snug font-bold">
                         본 추천은 판매점에 판매중인 2026년 모델 중에서 추천하고 있으며, 단순히 참고용이므로 자세한 사양은 꼭 사용하시는 소프트웨어의 권장사양을 확인 후 비교하시기 바랍니다.
                     </p>
                 </div>
@@ -70,7 +69,7 @@
             </h2>
             <div class="relative">
                 <textarea id="userInput" rows="2" 
-                    class="w-full p-6 pr-16 rounded-3xl bg-slate-50 border-none focus:ring-4 focus:ring-red-600/10 text-slate-700 font-semibold placeholder-slate-400 resize-none shadow-inner text-sm"
+                    class="w-full p-6 pr-16 rounded-3xl bg-slate-50 border-none focus:ring-4 focus:ring-red-600/10 text-slate-700 font-semibold placeholder-slate-400 resize-none shadow-inner text-base"
                     placeholder="예: 리그 오브 레전드, 오토캐드, 프리미어 프로"></textarea>
                 <button id="searchBtn" onclick="analyzeAndRecommend()" 
                     class="absolute bottom-4 right-4 bg-red-600 text-white w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg transition-all active:scale-90 hover:bg-red-700">
@@ -94,11 +93,10 @@
 
     <script>
         let minSwDict = null, recSwDict = null, cachedLaptopData = null;
-        let isComposing = false; 
+        let isComposing = false;
 
         const inputArea = document.getElementById('userInput');
 
-        // 한글 중복 입력 방지
         inputArea.addEventListener('compositionstart', () => { isComposing = true; });
         inputArea.addEventListener('compositionend', () => { isComposing = false; });
         inputArea.addEventListener('keydown', function(e) {
@@ -125,6 +123,7 @@
         async function loadCSV(filename) {
             try {
                 const response = await fetch(filename);
+                if(!response.ok) return null;
                 const data = await response.text();
                 const lines = data.split(/\r?\n/);
                 const result = [];
@@ -182,6 +181,12 @@
             if (!minSwDict) minSwDict = await loadCSV('minimum_sw_data.csv');
             if (!recSwDict) recSwDict = await loadCSV('recommend_sw_data.csv');
             const laptopData = await loadLaptopData();
+
+            if (!minSwDict || !recSwDict || !laptopData) {
+                document.getElementById('statusIndicator').classList.add('hidden');
+                alert("CSV 데이터를 불러올 수 없습니다. 파일명을 확인하세요.");
+                return;
+            }
 
             const tags = val.split(',').map(s => s.trim().toLowerCase()).filter(s => s !== "").slice(0, 3);
             let reqMin = { cpu: 0, ram: 0, gpu: 0, tagNames: [] };
@@ -242,49 +247,62 @@
 
         function renderResults(tags, list) {
             const container = document.getElementById('resultContainer');
-            container.innerHTML = `<p class="text-[11px] font-extrabold text-slate-400 mb-6 px-2 tracking-widest uppercase"><i class="fas fa-check-circle mr-1 text-red-600"></i> 분석 프로그램: ${tags.join(' / ')}</p>`;
+            container.innerHTML = `<p class="text-xs sm:text-sm font-extrabold text-slate-400 mb-6 px-2 tracking-widest uppercase"><i class="fas fa-check-circle mr-1 text-red-600"></i> 분석 프로그램: ${tags.join(' / ')}</p>`;
 
             list.forEach((item, i) => {
                 const isRec = item.displayType === 'rec' || item.isRecOnly;
                 const badgeClass = isRec ? "badge-rec" : "badge-min";
-                const badgeText = isRec ? "최적의 밸런스 (권장 사양)" : "합리적인 선택(최소 사양)";
+                const badgeText = isRec ? "최적의 밸런스 (권장 사양)" : "합리적인 선택 (최소 사양)";
                 
                 const imgSource = `./${item.IMAGE.split('/').pop()}`;
-                const cS = item.CPU_LV === 4 ? 5 : (item.CPU_LV === 3 ? 4 : 3);
-                const gS = item.GPU_LV === 2 ? 5 : (item.GPU_LV === 1 ? 3.5 : 2);
-                const rS = item.RAM_LV === 3 ? 5 : (item.RAM_LV === 2 ? 4 : 2);
-                const sS = item.SSD.includes("512") ? 5 : 3.5;
-                const fS = isRec ? 5 : 4.2;
+                
+                // 모델명에서 '2026년' 키워드 제거 후 제목으로 사용
+                const displayTitle = item.NAME.replace('2026년', '').trim();
 
                 const card = `
                 <div class="bg-white rounded-[3rem] overflow-hidden shadow-2xl border border-white card-anim mb-12">
                     <div class="p-8 text-center">
                         <div class="aspect-300 shadow-inner flex items-center justify-center mb-8 relative group bg-white">
                             <img src="${imgSource}" alt="LG그램" class="max-w-[85%] max-h-[85%] object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-xl" onerror="this.src='https://via.placeholder.com/300?text=Notebook'">
-                            <div class="absolute top-4 left-4 ${badgeClass} text-[10px] font-black px-4 py-2 rounded-full shadow-lg border border-white/20">${badgeText}</div>
+                            <div class="absolute top-4 left-4 ${badgeClass} text-xs font-black px-4 py-2 rounded-full shadow-lg border border-white/20">${badgeText}</div>
                         </div>
-                        <div class="inline-flex gap-2 mb-4">
-                            <span class="bg-slate-100 text-slate-500 text-[10px] font-black px-3 py-1 rounded-full uppercase">${item.SIZE}</span>
-                            <span class="bg-slate-100 text-slate-500 text-[10px] font-black px-3 py-1 rounded-full uppercase">${item.WEIGHT}</span>
+                        
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-blue-600 text-white text-[10px] sm:text-xs font-black px-3 py-1 rounded-full uppercase flex items-center gap-1 shadow-sm">
+                                <i class="fas fa-calendar-alt"></i> 2026
+                            </span>
+                            <span class="bg-slate-100 text-slate-500 text-[10px] sm:text-xs font-black px-3 py-1 rounded-full uppercase shadow-sm border border-slate-200/50">${item.SIZE}</span>
+                            <span class="bg-slate-100 text-slate-500 text-[10px] sm:text-xs font-black px-3 py-1 rounded-full uppercase shadow-sm border border-slate-200/50">${item.WEIGHT}</span>
                         </div>
-                        <h3 class="text-xl font-black text-slate-900 tracking-tight leading-tight px-4">${item.NAME}</h3>
-                        <p class="text-[11px] text-slate-400 mt-3 font-bold">${item.CPU} | ${item.GPU} | RAM ${item.RAM}GB</p>
+
+                        <h3 class="text-xl font-extrabold text-slate-900 tracking-tight leading-snug px-2 mb-4 break-keep">${displayTitle}</h3>
+                        
+                        <p class="text-sm text-slate-400 mb-10 font-bold">${item.CPU} | ${item.GPU} | RAM ${item.RAM}GB</p>
+                        
                         <div class="my-10 h-64"><canvas id="chart-${i}"></canvas></div>
+                        
                         <div class="bg-slate-50 rounded-[2.5rem] p-7 border border-slate-100/50 text-left">
                             <div class="flex justify-between items-center mb-6">
                                 <div class="flex flex-col">
-                                    <span class="text-[11px] text-slate-300 line-through font-black">${item.PRICE}원</span>
+                                    <span class="text-xs text-slate-300 line-through font-black decoration-red-400/50">${item.PRICE}원</span>
                                     <span class="text-2xl font-black text-red-600 tracking-tighter">${item.SALE_PRICE}원</span>
                                 </div>
-                                <div class="bg-red-600/10 text-red-600 text-[10px] font-black px-3 py-1.5 rounded-xl border border-red-600/20 text-center font-bold">인증점 혜택가</div>
+                                <div class="bg-red-600/10 text-red-600 text-xs font-black px-3 py-1.5 rounded-xl border border-red-600/20 text-center font-bold">인증점 혜택가</div>
                             </div>
-                            <a href="${item.URL}" target="_blank" class="btn-interactive w-full bg-slate-900 text-white py-5 rounded-[1.5rem] font-bold text-sm flex items-center justify-center gap-3 shadow-xl">
-                                상품 상세 바로가기 <i class="fas fa-chevron-right text-[10px] opacity-40"></i>
+                            <a href="${item.URL}" target="_blank" class="btn-interactive w-full bg-slate-900 text-white py-5 rounded-[1.5rem] font-bold text-base flex items-center justify-center gap-3 shadow-xl">
+                                상품 상세 바로가기 <i class="fas fa-chevron-right text-xs opacity-40"></i>
                             </a>
                         </div>
                     </div>
                 </div>`;
                 container.insertAdjacentHTML('beforeend', card);
+                
+                // 오각형 데이터 계산 로직
+                const cS = item.CPU_LV === 4 ? 5 : (item.CPU_LV === 3 ? 4 : 3);
+                const gS = item.GPU_LV === 2 ? 5 : (item.GPU_LV === 1 ? 3.5 : 2);
+                const rS = item.RAM_LV === 3 ? 5 : (item.RAM_LV === 2 ? 4 : 2);
+                const sS = item.SSD.includes("512") ? 5 : 3.5;
+                const fS = isRec ? 5 : 4.2;
                 drawPentagon(`chart-${i}`, [cS, gS, rS, sS, fS], isRec);
             });
         }
@@ -300,7 +318,7 @@
                     }]
                 },
                 options: {
-                    scales: { r: { min: 0, max: 5, ticks: { display: false }, grid: { color: '#e2e8f0' }, pointLabels: { font: { size: 11, family: 'Pretendard', weight: '800' }, color: '#475569', padding: 15 } } },
+                    scales: { r: { min: 0, max: 5, ticks: { display: false }, grid: { color: '#e2e8f0' }, pointLabels: { font: { size: 12, family: 'Pretendard', weight: '800' }, color: '#475569', padding: 15 } } },
                     plugins: { legend: { display: false } },
                     maintainAspectRatio: false,
                     responsive: true
