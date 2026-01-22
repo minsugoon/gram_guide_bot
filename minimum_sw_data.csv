@@ -1,0 +1,262 @@
+name,keywords,cpuLv,ramLv,gpuLv
+OTT,"OTT, 넷플릭스,디즈니플러스,티빙,유튜브",2,1,0
+MS Word,"MS Word,워드,word,문서",2,1,0
+MS Excel,"MS Excel,엑셀,excel,스프레드시트",2,1,0
+MS PowerPoint,"MS PowerPoint,피피티,ppt,powerpoint,발표",2,1,0
+한컴오피스 한글,"한컴오피스 한글,한글,hwp,한컴",2,1,0
+Outlook,"Outlook,아웃룩,메일,outlook",2,1,0
+Notion,"Notion,노션,notion,메모",2,1,0
+Slack,"Slack,슬랙,slack,협업",2,1,0
+Teams,"Teams,팀즈,teams",2,1,0
+Zoom,"Zoom,줌,zoom,화상회의",2,1,0
+Google Docs,"Google Docs,구글문서,docs",2,1,0
+Google Sheets,"Google Sheets,구글시트,sheets",2,1,0
+Airtable,"Airtable,에어테이블,airtable",2,1,0
+Monday.com,"Monday.com,먼데이닷컴,monday",2,1,0
+Trello,"Trello,트렐로,trello",2,1,0
+Asana,"Asana,아사나,asana",2,1,0
+Obsidian,"Obsidian,옵시디언,obsidian",2,1,0
+Evernote,"Evernote,에버노트,evernote",2,1,0
+PDF Expert,"PDF Expert,pdf,피디에프",2,1,0
+WPS Office,"WPS Office,wps",2,1,0
+Polaris Office,"Polaris Office,폴라리스",2,1,0
+Skype,"Skype,스카이프",2,1,0
+Discord,"Discord,디스코드,디코",2,1,0
+OneNote,"OneNote,원노트",2,1,0
+Dropbox Paper,"Dropbox Paper,드롭박스",2,1,0
+Miro,"Miro,미로",2,1,0
+Coda,"Coda,코다",2,1,0
+Zoho Office,"Zoho Office,조호",2,1,0
+GoodNotes,"GoodNotes,굿노트",2,1,0
+Scrivener,"Scrivener,스크리브너",2,1,0
+Spark,"Spark,스파크메일",2,1,0
+Photoshop,"Photoshop,포토샵,photoshop,사진편집",3,2,1
+Lightroom,"Lightroom,라이트룸,lightroom,보정",3,2,1
+Affinity Photo,"Affinity Photo,어피니티,affinity",3,2,1
+Capture One,"Capture One,캡쳐원",3,2,1
+GIMP,"GIMP,김프,gimp",2,1,0
+Pixlr,"Pixlr,픽슬러",2,1,0
+Canva,"Canva,캔바,canva",2,1,0
+Luminar Neo,"Luminar Neo,루미나,luminar",3,2,1
+DxO Photolab,"DxO Photolab,dxo",3,2,1
+Snapseed,"Snapseed,스냅시드",2,1,0
+Fotor,"Fotor,포토",2,1,0
+Darktable,"Darktable,다크테이블",2,1,0
+RawTherapee,"RawTherapee,로우테라피",2,1,0
+PaintShop Pro,"PaintShop Pro,페인트샵",3,2,1
+Krita,"Krita,크리타",3,2,1
+SAI,"SAI,사이툴,sai",2,1,0
+CorelDRAW,"CorelDRAW,코렐드로우",3,2,1
+Photopea,"Photopea,포토피아",2,1,0
+FireAlpaca,"FireAlpaca,파이어알파카",2,1,0
+MediBang Paint,"MediBang Paint,메디방",2,1,0
+Sketchbook,"Sketchbook,스케치북",2,1,0
+ArtRage,"ArtRage,아트레이지",2,1,0
+Rebelle,"Rebelle,리벨",3,2,1
+Inkscape,"Inkscape,잉크스케이프",2,1,0
+PhotoDirector,"PhotoDirector,포토디렉터",2,1,0
+Pixelmator,"Pixelmator,픽셀메이터",2,1,0
+Topaz Photo AI,"Topaz Photo AI,토파즈,ai보정",3,2,1
+Photoroom,"Photoroom,포토룸",2,1,0
+BeFunky,"BeFunky,비펑키",2,1,0
+Picsart,"Picsart,픽스아트",2,1,0
+AutoCAD,"AutoCAD,오토캐드,autocad,캐드,cad",3,2,1
+Revit,"Revit,레빗,revit",3,2,1
+Solidworks,"Solidworks,솔리드웍스,solidworks",3,2,1
+Rhino,"Rhino,라이노,rhino",3,2,1
+SketchUp,"SketchUp,스케치업,sketchup",3,2,1
+ArchiCAD,"ArchiCAD,아키캐드",3,2,1
+CATIA,"CATIA,카티아,catia",3,2,1
+Fusion 360,"Fusion 360,퓨전360,fusion",3,2,1
+MicroStation,"MicroStation,마이크로스테이션",3,2,1
+Civil 3D,"Civil 3D,시빌3디",3,2,1
+Inventor,"Inventor,인벤터",3,2,1
+2020 Design,"2020 Design,2020디자인",3,2,1
+Tekla,"Tekla,테클라",3,2,1
+ZWCAD,"ZWCAD,지더블유캐드",3,2,1
+GstarCAD,"GstarCAD,지스타캐드",3,2,1
+DraftSight,"DraftSight,드래프트사이트",3,2,1
+BricsCAD,"BricsCAD,브릭스캐드",3,2,1
+Vectorworks,"Vectorworks,벡터웍스",3,2,1
+Solid Edge,"Solid Edge,솔리드엣지",3,2,1
+Mastercam,"Mastercam,마스터캠",3,2,1
+ANSYS,"ANSYS,앤시스,해석",3,2,1
+MATLAB,"MATLAB,매트랩",3,2,1
+LabVIEW,"LabVIEW,랩뷰",2,1,0
+Siemens NX,"Siemens NX,에넥스,ug nx",3,2,1
+Onshape,"Onshape,온셰이프",2,1,0
+FreeCAD,"FreeCAD,프리캐드",2,1,0
+Tinkercad,"Tinkercad,틴커캐드",2,1,0
+IronCAD,"IronCAD,아이언캐드",3,2,1
+KeyCreator,"KeyCreator,키크리에이터",3,2,1
+Chief Architect,"Chief Architect,치프",3,2,1
+Premiere Pro,"Premiere Pro,프리미어,premiere,영상편집",3,2,1
+After Effects,"After Effects,에펙,after effects,특수효과",3,2,1
+DaVinci Resolve,"DaVinci Resolve,다빈치,davinci,색보정",3,2,1
+Final Cut Pro,"Final Cut Pro,파이널컷,파컷",3,2,1
+CapCut,"CapCut,캡컷,capcut,쇼츠편집",2,1,0
+Filmora,"Filmora,필모라",2,1,0
+Vegas Pro,"Vegas Pro,베가스",3,2,1
+Avid,"Avid,아비드",3,2,1
+Camtasia,"Camtasia,캠타시아,화면녹화",2,1,0
+LumaFusion,"LumaFusion,루마퓨전",2,1,0
+Movavi,"Movavi,모바비",2,1,0
+Handbrake,"Handbrake,핸드브레이크,인코딩",3,2,1
+OBS Studio,"OBS Studio,오비에스,방송",3,2,1
+HitFilm,"HitFilm,히트필름",3,2,1
+Lightworks,"Lightworks,라이트웍스",3,2,1
+Shotcut,"Shotcut,샷컷",2,1,0
+OpenShot,"OpenShot,오픈샷",2,1,0
+VideoPad,"VideoPad,비디오패드",2,1,0
+PowerDirector,"PowerDirector,파워디렉터",3,2,1
+Pinnacle Studio,"Pinnacle Studio,피나클",3,2,1
+Magix Video,"Magix Video,매직스",3,2,1
+iMovie,"iMovie,아이무비",2,1,0
+Edius,"Edius,에디우스",3,2,1
+Clipchamp,"Clipchamp,클립챔프",2,1,0
+WeVideo,"WeVideo,위비디오",2,1,0
+Animaker,"Animaker,애니메이커",2,1,0
+Vyond,"Vyond,비욘드",2,1,0
+Powtoon,"Powtoon,파우툰",2,1,0
+Synthesia,"Synthesia,신테시아,ai영상",2,1,0
+Descript,"Descript,디스크립트",2,1,0
+Figma,"Figma,피그마,figma,디자인,ui,ux",2,1,0
+Illustrator,"Illustrator,일러스트,illustrator,벡터",3,2,1
+InDesign,"InDesign,인디자인,편집디자인",2,1,0
+Sketch,"Sketch,스케치,sketch",2,1,0
+Blender,"Blender,블렌더,blender,3d모델링",3,2,1
+Cinema 4D,"Cinema 4D,시네마4디,c4d",3,2,1
+Maya,"Maya,마야,maya",3,2,1
+3ds Max,"3ds Max,맥스,3dsmax",3,2,1
+ZBrush,"ZBrush,지브러쉬,스컬핑",3,2,1
+KeyShot,"KeyShot,키샷,렌더링",3,2,1
+Substance Painter,"Substance Painter,서브스턴스,텍스처링",3,2,1
+Procreate,"Procreate,프로크리에이트",2,1,0
+Framer,"Framer,프레이머",2,1,0
+Adobe XD,"Adobe XD,엑스디",2,1,0
+ProtoPie,"ProtoPie,프로토파이",2,1,0
+Marvel,"Marvel,마벨",2,1,0
+Zeplin,"Zeplin,제플린",2,1,0
+Balsamiq,"Balsamiq,발사믹",2,1,0
+Axure,"Axure,액슈어",2,1,0
+V-Ray,"V-Ray,브이레이",3,2,1
+Corona Renderer,"Corona Renderer,코로나렌더",3,2,1
+Octane,"Octane,옥테인",3,2,1
+Lumion,"Lumion,루미온",3,2,1
+Twinmotion,"Twinmotion,트윈모션",3,2,1
+Enscape,"Enscape,엔스케이프",3,2,1
+Marvelous Designer,"Marvelous Designer,마블러스,의상",3,2,1
+Daz 3D,"Daz 3D,다즈",3,2,1
+Mudbox,"Mudbox,머드박스",3,2,1
+Poser,"Poser,포저",2,1,0
+Marmoset,"Marmoset,마모셋",3,2,1
+VS Code,"VS Code,vscode,코딩,개발,에디터",2,1,0
+IntelliJ,"IntelliJ,인텔리제이,java,자바,intellij",3,2,1
+PyCharm,"PyCharm,파이참,파이썬,python",3,2,1
+Visual Studio 2025,"Visual Studio 2025,비주얼스튜디오,c++,c#",3,2,1
+Android Studio,"Android Studio,안드로이드,앱개발",3,2,1
+Xcode,"Xcode,엑스코드,ios개발",3,2,1
+Docker,"Docker,도커,가상화",3,2,1
+Eclipse,"Eclipse,이클립스",2,1,0
+WebStorm,"WebStorm,웹스톰",2,1,0
+Jupyter Notebook,"Jupyter Notebook,주피터,데이터분석",2,1,0
+Anaconda,"Anaconda,아나콘다",2,1,0
+Postman,"Postman,포스트맨,api",2,1,0
+DBeaver,"DBeaver,디비버,db",2,1,0
+Cursor,"Cursor,커서,ai코딩",2,1,0
+Sublime Text,"Sublime Text,서브라임",2,1,0
+Notepad++,"Notepad++,노트패드",2,1,0
+Vim,"Vim,빔",2,1,0
+Emacs,"Emacs,이맥스",2,1,0
+PHPStorm,"PHPStorm,피에이치피스톰",3,2,1
+GoLand,"GoLand,고랜드",3,2,1
+RubyMine,"RubyMine,루비마인",3,2,1
+AppCode,"AppCode,앱코드",3,2,1
+CLion,"CLion,씨라이언",3,2,1
+Rider,"Rider,라이더,유니티개발",3,2,1
+GitKraken,"GitKraken,깃크라켄",2,1,0
+SourceTree,"SourceTree,소스트리",2,1,0
+Insomnia,"Insomnia,인섬니아",2,1,0
+Terminal,"Terminal,터미널",2,1,0
+Putty,"Putty,푸티",2,1,0
+WinSCP,"WinSCP,윈에스씨피",2,1,0
+리그 오브 레전드,"리그 오브 레전드,롤,lol,협곡",2,1,1
+발로란트,"발로란트,valorant",2,1,1
+FC 온라인,"FC 온라인,피파,피파온라인,축구게임",2,1,1
+배틀그라운드,"배틀그라운드,배그,pubg,배틀로얄",3,2,1
+로스트아크,"로스트아크,로아,lostark",3,2,1
+메이플스토리,"메이플스토리,메이플,maple",2,1,0
+서든어택,"서든어택,서든,sudden",2,1,0
+던전앤파이터,"던전앤파이터,던파,dnf",2,1,0
+오버워치 2,"오버워치 2,옵워,오버워치",2,1,1
+에이펙스 레전드,"에이펙스 레전드,에이펙스,apex",3,2,1
+리니지W,"리니지W,리니지,lineage",2,1,0
+아이온,아이온,2,1,0
+이터널 리턴,"이터널 리턴,이리,이터널",2,1,1
+포트나이트,"포트나이트,fortnite",2,1,1
+카운터 스트라이크 2,"카운터 스트라이크 2,카스,cs2",2,1,1
+도타 2,"도타 2,도타",2,1,1
+로블록스,"로블록스,roblox",2,1,0
+마인크래프트,"마인크래프트,마크,minecraft",2,1,0
+원신,"원신,genshin",2,1,1
+붕괴: 스타레일,"붕괴: 스타레일,스타레일,starrail",2,1,1
+레인보우 식스 시즈,"레인보우 식스 시즈,레식",2,1,1
+데드 바이 데이라이트,"데드 바이 데이라이트,데바데",2,1,1
+러스트,"러스트,rust",3,2,1
+헬다이버즈 2,"헬다이버즈 2,헬다이버즈",3,2,1
+철권 8,"철권 8,철권",3,2,1
+스트리트 파이터 6,"스트리트 파이터 6,스파6",3,2,1
+파이널 판타지 14,"파이널 판타지 14,파판14",2,1,1
+월드 오브 워크래프트,"월드 오브 워크래프트,와우,wow",2,1,1
+풋볼 매니저 2026,"풋볼 매니저 2026,에프엠,fm",3,2,0
+카트라이더 드리프트,"카트라이더 드리프트,카트",2,1,0
+GTA VI,"GTA VI,gta6,그타6",3,2,1
+사이버펑크 2077,"사이버펑크 2077,사펑,cyberpunk",3,2,1
+엘든 링,"엘든 링,엘든링,eldenring",3,2,1
+몬스터 헌터 와일즈,"몬스터 헌터 와일즈,몬헌,와일즈",3,2,1
+레드 데드 리뎀션 2,"레드 데드 리뎀션 2,레데리,rdr2",3,2,1
+스타필드,스타필드,3,2,1
+검은 신화: 오공,"검은 신화: 오공,오공,wukong",3,2,1
+호그와트 레거시,"호그와트 레거시,호그와트",3,2,1
+팰월드,"팰월드,palworld",3,2,1
+스카이림,스카이림,2,1,0
+위쳐 3,"위쳐 3,위쳐",3,2,1
+발더스 게이트 3,"발더스 게이트 3,발더게,bg3",3,2,1
+앨런 웨이크 2,"앨런 웨이크 2,앨런웨이크",3,2,1
+스파이더맨 2,"스파이더맨 2,스파이더맨",3,2,1
+갓 오브 워 라그나로크,"갓 오브 워 라그나로크,갓옵워",3,2,1
+바이오하자드 RE:4,"바이오하자드 RE:4,바하",3,2,1
+포르자 호라이즌 5,"포르자 호라이즌 5,포르자,레이싱게임",3,2,1
+플라이트 시뮬레이터 2024,"플라이트 시뮬레이터 2024,플시",3,2,1
+드래곤즈 도그마 2,"드래곤즈 도그마 2,드도2",3,2,1
+P의 거짓,"P의 거짓,p의거짓",3,2,1
+스텔라 블레이드,"스텔라 블레이드,스텔라",3,2,1
+아머드 코어 6,"아머드 코어 6,아머드코어",3,2,1
+세키로,세키로,2,1,1
+다크 소울 3,"다크 소울 3,닥소",2,1,1
+호라이즌 포비든 웨스트,"호라이즌 포비든 웨스트,호라이즌",3,2,1
+데스 스트랜딩,"데스 스트랜딩,데스스트랜딩",3,2,1
+어쌔신 크리드 섀도우스,"어쌔신 크리드 섀도우스,어크",3,2,1
+고스트 오브 쓰시마,"고스트 오브 쓰시마,고쓰",3,2,1
+둠 이터널,"둠 이터널,둠",2,1,1
+컨트롤,컨트롤,2,1,1
+메트로 엑소더스,"메트로 엑소더스,메트로",3,2,1
+하데스 2,"하데스 2,하데스",2,1,0
+할로우 나이트,"할로우 나이트,할로우나이트",2,1,0
+문명 VII,"문명 VII,문명7",3,2,0
+매너 로드,"매너 로드,매너로드",3,2,1
+시티즈 스카이라인 2,"시티즈 스카이라인 2,시스카",3,2,1
+심즈 4,"심즈 4,심즈",2,1,0
+유로 트럭 2,"유로 트럭 2,유로트럭",2,1,0
+빔엔지 드라이브,"빔엔지 드라이브,빔엔지",3,2,1
+스쿼드,스쿼드,3,2,1
+타르코프,"타르코프,탈코",3,2,1
+데이지,"데이지,dayz",2,1,1
+노 맨즈 스카이,"노 맨즈 스카이,노맨즈",2,1,1
+씨 오브 씨브즈,"씨 오브 씨브즈,도둑잡기",2,1,1
+그라운디드,그라운디드,2,1,1
+인슈라우디드,인슈라우디드,3,2,1
+그레이 존 워페어,"그레이 존 워페어,그레이존",3,2,1
+바디캠,"바디캠,bodycam",3,2,1
+디트로이트 비컴 휴먼,"디트로이트 비컴 휴먼,디비휴",3,2,1
+스트레이,"스트레이,고양이게임",2,1,1

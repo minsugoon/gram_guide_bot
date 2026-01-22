@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LG전자 온라인 인증점 노트북랜드21 - 🤖 스마트 봇 추천</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap');
+        body { font-family: 'Pretendard', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .lg-header { background: linear-gradient(135deg, #a50034 0%, #ed1c24 100%); }
+        .card-anim { animation: fadeInUp 0.5s ease-out forwards; opacity: 0; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .loading-dots:after { content: '.'; animation: dots 1.5s infinite; }
+        @keyframes dots { 0%, 20% { content: '.'; } 40% { content: '..'; } 60% { content: '...'; } 80%, 100% { content: ''; } }
+        .btn-interactive { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .btn-interactive:hover { transform: translateY(-3px); box-shadow: 0 12px 24px -8px rgba(165, 0, 52, 0.4); }
+        .aspect-300 { width: 300px; height: 300px; margin: 0 auto; overflow: hidden; border-radius: 2rem; background: #fff; border: 1px solid #f1f5f9; }
+        .badge-min { background: #64748b; color: white; } 
+        .badge-rec { background: #a50034; color: white; } 
+        
+        /* 말풍선 애니메이션 (위아래 부유 효과) */
+        .bubble-float { animation: bubbleFloat 2s ease-in-out infinite; }
+        @keyframes bubbleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="pb-16">
+
+    <header class="lg-header text-white pt-10 pb-8 px-6 shadow-2xl sticky top-0 z-50">
+        <div class="max-w-md mx-auto flex items-end justify-between gap-2">
+            <div class="flex-1 min-w-0">
+                <h1 class="text-lg sm:text-xl font-extrabold tracking-tight leading-tight truncate">LG전자 온라인 인증점<br>노트북랜드21</h1>
+                <p class="text-white/80 text-[10px] sm:text-xs mt-2 font-medium tracking-wide">🤖 스마트 봇 추천</p>
+            </div>
+            
+            <div class="relative flex-shrink-0">
+                <div class="absolute bottom-full right-0 mb-3 bg-white text-[#a50034] text-[10px] font-bold py-2 px-3 rounded-2xl shadow-xl whitespace-nowrap bubble-float border border-red-50">
+                    궁금하신 사항은 네이버톡톡으로 전문가와 상담하세요
+                    <div class="absolute bottom-[-6px] right-6 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-white"></div>
+                </div>
+                
+                <a href="https://talk.naver.com/ct/wcblja/" target="_blank" class="bg-white/20 p-3 sm:p-4 rounded-[2rem] backdrop-blur-md transition-all hover:bg-white/30 active:scale-95 shadow-lg flex items-center justify-center">
+                    <i class="fas fa-robot text-2xl sm:text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-6 mt-6">
+        <div class="bg-red-50 border-l-4 border-red-600 p-4 mb-8 rounded-r-xl shadow-sm">
+            <div class="flex">
+                <div class="flex-shrink-0"><i class="fas fa-exclamation-circle text-red-600"></i></div>
+                <div class="ml-3">
+                    <p class="text-[12px] text-red-900 leading-snug font-bold">
+                        본 추천은 판매점에 판매중인 2026년 모델 중에서 추천하고 있으며, 단순히 참고용이므로 자세한 사양은 꼭 사용하시는 소프트웨어의 권장사양을 확인 후 비교하시기 바랍니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-[2.5rem] p-8 shadow-2xl shadow-slate-200/60 mb-10 border border-white/50">
+            <h2 class="text-sm font-extrabold text-slate-800 mb-5 flex items-center">
+                <span class="w-1.5 h-4 bg-red-600 rounded-full mr-3"></span>
+                사용하는 소프트웨어를 콤마(,)로 구분해 입력 (최대 3개)해주세요.
+            </h2>
+            <div class="relative">
+                <textarea id="userInput" rows="2" 
+                    class="w-full p-6 pr-16 rounded-3xl bg-slate-50 border-none focus:ring-4 focus:ring-red-600/10 text-slate-700 font-semibold placeholder-slate-400 resize-none shadow-inner text-sm"
+                    placeholder="예: 리그 오브 레전드, 오토캐드, 프리미어 프로"></textarea>
+                <button id="searchBtn" onclick="analyzeAndRecommend()" 
+                    class="absolute bottom-4 right-4 bg-red-600 text-white w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg transition-all active:scale-90 hover:bg-red-700">
+                    <i class="fas fa-search text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="statusIndicator" class="hidden text-center py-20">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full border-4 border-red-50 border-t-red-600 animate-spin mb-6"></div>
+            <p class="text-slate-500 font-extrabold loading-dots text-sm">요구 사양 정밀 분석 중</p>
+        </div>
+
+        <div id="resultContainer" class="space-y-12"></div>
+
+        <div id="initialState" class="text-center py-32 opacity-30">
+            <i class="fas fa-laptop-code text-7xl mb-6 text-slate-300"></i>
+            <p class="text-slate-500 font-bold leading-relaxed text-sm">소프트웨어별 '최소 사양' 모델과<br>'여유로운 권장 사양' 모델을 찾아드립니다.</p>
+        </div>
+    </main>
+
+    <script>
+        let minSwDict = null, recSwDict = null, cachedLaptopData = null;
+        let isComposing = false; 
+
+        const inputArea = document.getElementById('userInput');
+
+        // 한글 중복 입력 방지
+        inputArea.addEventListener('compositionstart', () => { isComposing = true; });
+        inputArea.addEventListener('compositionend', () => { isComposing = false; });
+        inputArea.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                if (isComposing) return; 
+                e.preventDefault();
+                analyzeAndRecommend();
+            }
+        });
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '', inQuotes = false;
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                if (char === '"') inQuotes = !inQuotes;
+                else if (char === ',' && !inQuotes) { result.push(current.trim()); current = ''; }
+                else current += char;
+            }
+            result.push(current.trim());
+            return result;
+        }
+
+        async function loadCSV(filename) {
+            try {
+                const response = await fetch(filename);
+                const data = await response.text();
+                const lines = data.split(/\r?\n/);
+                const result = [];
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
+                    const parts = parseCSVLine(line);
+                    if (parts.length >= 5) {
+                        result.push({
+                            name: parts[0],
+                            keywords: parts[1].split(',').map(k => k.trim().toLowerCase()),
+                            cpuLv: parseInt(parts[2]),
+                            ramLv: parseInt(parts[3]),
+                            gpuLv: parseInt(parts[4])
+                        });
+                    }
+                }
+                return result;
+            } catch (err) { return null; }
+        }
+
+        async function loadLaptopData() {
+            if (cachedLaptopData) return cachedLaptopData;
+            try {
+                const response = await fetch('laptop_data.csv');
+                const data = await response.text();
+                const lines = data.split(/\r?\n/);
+                const result = [];
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
+                    const parts = parseCSVLine(line);
+                    if (parts.length >= 16) {
+                        result.push({
+                            NAME: parts[0], CPU: parts[1], RAM: parseInt(parts[2]), GPU: parts[3], SSD: parts[4],
+                            SIZE: parts[5], WEIGHT: parts[6], COLOR: parts[7], OS: parts[8], PRICE: parts[9],
+                            SALE_PRICE: parts[10], URL: parts[11], IMAGE: parts[12],
+                            CPU_LV: parseInt(parts[13]), GPU_LV: parseInt(parts[14]), RAM_LV: parseInt(parts[15])
+                        });
+                    }
+                }
+                cachedLaptopData = result;
+                return result;
+            } catch (err) { return null; }
+        }
+
+        async function analyzeAndRecommend() {
+            const val = inputArea.value;
+            if (!val.trim()) return;
+
+            document.getElementById('initialState').classList.add('hidden');
+            document.getElementById('resultContainer').innerHTML = '';
+            document.getElementById('statusIndicator').classList.remove('hidden');
+
+            if (!minSwDict) minSwDict = await loadCSV('minimum_sw_data.csv');
+            if (!recSwDict) recSwDict = await loadCSV('recommend_sw_data.csv');
+            const laptopData = await loadLaptopData();
+
+            const tags = val.split(',').map(s => s.trim().toLowerCase()).filter(s => s !== "").slice(0, 3);
+            let reqMin = { cpu: 0, ram: 0, gpu: 0, tagNames: [] };
+            let reqRec = { cpu: 0, ram: 0, gpu: 0, tagNames: [] };
+            let found = false;
+
+            tags.forEach(t => {
+                minSwDict.forEach(sw => {
+                    if (sw.keywords.includes(t)) {
+                        reqMin.cpu = Math.max(reqMin.cpu, sw.cpuLv);
+                        reqMin.ram = Math.max(reqMin.ram, sw.ramLv);
+                        reqMin.gpu = Math.max(reqMin.gpu, sw.gpuLv);
+                        if(!reqMin.tagNames.includes(sw.name)) reqMin.tagNames.push(sw.name);
+                        found = true;
+                    }
+                });
+                recSwDict.forEach(sw => {
+                    if (sw.keywords.includes(t)) {
+                        reqRec.cpu = Math.max(reqRec.cpu, sw.cpuLv);
+                        reqRec.ram = Math.max(reqRec.ram, sw.ramLv);
+                        reqRec.gpu = Math.max(reqRec.gpu, sw.gpuLv);
+                    }
+                });
+            });
+
+            if (!found) {
+                document.getElementById('statusIndicator').classList.add('hidden');
+                document.getElementById('resultContainer').innerHTML = `<div class="bg-white p-20 rounded-[3rem] text-center text-slate-500 font-bold shadow-xl">정보를 찾을 수 없습니다. 다시 입력해 주세요.</div>`;
+                return;
+            }
+
+            function getBestModel(req) {
+                let matched = laptopData.filter(l => l.CPU_LV >= req.cpu && l.RAM_LV >= req.ram && l.GPU_LV >= req.gpu);
+                if (matched.length === 0) return null;
+                return [...matched].sort((a,b) => parseInt(a.SALE_PRICE.replace(/,/g, '')) - parseInt(b.SALE_PRICE.replace(/,/g, '')))[0];
+            }
+
+            const minModel = getBestModel(reqMin);
+            const recModel = getBestModel(reqRec);
+
+            let finalDisplay = [];
+            if (minModel && recModel) {
+                if (minModel.NAME === recModel.NAME) {
+                    recModel.isRecOnly = true;
+                    finalDisplay = [recModel];
+                } else {
+                    minModel.displayType = 'min';
+                    recModel.displayType = 'rec';
+                    finalDisplay = [minModel, recModel];
+                }
+            }
+
+            setTimeout(() => {
+                document.getElementById('statusIndicator').classList.add('hidden');
+                renderResults(reqMin.tagNames, finalDisplay);
+            }, 600);
+        }
+
+        function renderResults(tags, list) {
+            const container = document.getElementById('resultContainer');
+            container.innerHTML = `<p class="text-[11px] font-extrabold text-slate-400 mb-6 px-2 tracking-widest uppercase"><i class="fas fa-check-circle mr-1 text-red-600"></i> 분석 프로그램: ${tags.join(' / ')}</p>`;
+
+            list.forEach((item, i) => {
+                const isRec = item.displayType === 'rec' || item.isRecOnly;
+                const badgeClass = isRec ? "badge-rec" : "badge-min";
+                const badgeText = isRec ? "최적의 밸런스 (권장 사양)" : "합리적인 선택(최소 사양)";
+                
+                const imgSource = `./${item.IMAGE.split('/').pop()}`;
+                const cS = item.CPU_LV === 4 ? 5 : (item.CPU_LV === 3 ? 4 : 3);
+                const gS = item.GPU_LV === 2 ? 5 : (item.GPU_LV === 1 ? 3.5 : 2);
+                const rS = item.RAM_LV === 3 ? 5 : (item.RAM_LV === 2 ? 4 : 2);
+                const sS = item.SSD.includes("512") ? 5 : 3.5;
+                const fS = isRec ? 5 : 4.2;
+
+                const card = `
+                <div class="bg-white rounded-[3rem] overflow-hidden shadow-2xl border border-white card-anim mb-12">
+                    <div class="p-8 text-center">
+                        <div class="aspect-300 shadow-inner flex items-center justify-center mb-8 relative group bg-white">
+                            <img src="${imgSource}" alt="LG그램" class="max-w-[85%] max-h-[85%] object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-xl" onerror="this.src='https://via.placeholder.com/300?text=Notebook'">
+                            <div class="absolute top-4 left-4 ${badgeClass} text-[10px] font-black px-4 py-2 rounded-full shadow-lg border border-white/20">${badgeText}</div>
+                        </div>
+                        <div class="inline-flex gap-2 mb-4">
+                            <span class="bg-slate-100 text-slate-500 text-[10px] font-black px-3 py-1 rounded-full uppercase">${item.SIZE}</span>
+                            <span class="bg-slate-100 text-slate-500 text-[10px] font-black px-3 py-1 rounded-full uppercase">${item.WEIGHT}</span>
+                        </div>
+                        <h3 class="text-xl font-black text-slate-900 tracking-tight leading-tight px-4">${item.NAME}</h3>
+                        <p class="text-[11px] text-slate-400 mt-3 font-bold">${item.CPU} | ${item.GPU} | RAM ${item.RAM}GB</p>
+                        <div class="my-10 h-64"><canvas id="chart-${i}"></canvas></div>
+                        <div class="bg-slate-50 rounded-[2.5rem] p-7 border border-slate-100/50 text-left">
+                            <div class="flex justify-between items-center mb-6">
+                                <div class="flex flex-col">
+                                    <span class="text-[11px] text-slate-300 line-through font-black">${item.PRICE}원</span>
+                                    <span class="text-2xl font-black text-red-600 tracking-tighter">${item.SALE_PRICE}원</span>
+                                </div>
+                                <div class="bg-red-600/10 text-red-600 text-[10px] font-black px-3 py-1.5 rounded-xl border border-red-600/20 text-center font-bold">인증점 혜택가</div>
+                            </div>
+                            <a href="${item.URL}" target="_blank" class="btn-interactive w-full bg-slate-900 text-white py-5 rounded-[1.5rem] font-bold text-sm flex items-center justify-center gap-3 shadow-xl">
+                                상품 상세 바로가기 <i class="fas fa-chevron-right text-[10px] opacity-40"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>`;
+                container.insertAdjacentHTML('beforeend', card);
+                drawPentagon(`chart-${i}`, [cS, gS, rS, sS, fS], isRec);
+            });
+        }
+
+        function drawPentagon(id, data, isRec) {
+            const color = isRec ? '#a50034' : '#64748b';
+            new Chart(document.getElementById(id), {
+                type: 'radar',
+                data: {
+                    labels: ['처리성능(CPU)', '그래픽성능(GPU)', '멀티태스킹(RAM)', '저장공간(SSD)', '실사용 적합도'],
+                    datasets: [{
+                        data: data, backgroundColor: color + '1F', borderColor: color, borderWidth: 4, pointBackgroundColor: '#fff', pointBorderColor: color, pointRadius: 5
+                    }]
+                },
+                options: {
+                    scales: { r: { min: 0, max: 5, ticks: { display: false }, grid: { color: '#e2e8f0' }, pointLabels: { font: { size: 11, family: 'Pretendard', weight: '800' }, color: '#475569', padding: 15 } } },
+                    plugins: { legend: { display: false } },
+                    maintainAspectRatio: false,
+                    responsive: true
+                }
+            });
+        }
+    </script>
+</body>
+</html>
