@@ -259,5 +259,46 @@ P의 거짓,"P의 거짓,p의거짓",3,2,1
 그레이 존 워페어,"그레이 존 워페어,그레이존",3,2,1
 바디캠,"바디캠,bodycam",3,2,1
 디트로이트 비컴 휴먼,"디트로이트 비컴 휴먼,디비휴",3,2,1
-
 스트레이,"스트레이,고양이게임",2,1,1
+Gemini,"제미나이,제미니,gemini,ai챗봇",2,1,0
+Midjourney,"미드저니,미드저니,midjourney,이미지생성ai",2,1,0
+ChatGPT,"챗지피티,챗gpt,chatgpt,openai",2,1,0
+Stable Diffusion,"스테이블디퓨전,스테이블디퓨전,stablediffusion,sd,sdxl",3,2,1
+ComfyUI,"컴피유아이,comfyui,sd워크플로우",3,2,1
+Suno,"수노,suno,작곡ai,음악ai",2,1,0
+Adobe Firefly,"Adobe Firefly,파이어플라이,어도비ai",2,1,0
+Leonardo AI,"Leonardo AI,레오나르도ai",2,1,0
+Ideogram,"Ideogram,이데오그램,로고ai",2,1,0
+Playground AI,"Playground AI,플레이그라운드ai",2,1,0
+Canva AI,"Canva AI,캔바ai",2,1,0
+Krea AI,"Krea AI,크레아ai,실시간ai",2,1,0
+Fotor AI,"Fotor AI,포토ai",2,1,0
+Pixlr AI,"Pixlr AI,픽슬러ai",2,1,0
+InvokeAI,"InvokeAI,로컬sd,인보크ai",3,2,1
+SwarmUI,"SwarmUI,스웜ui,로컬sd",3,2,1
+Runway,"Runway,런웨이,비디오ai,gen3",2,1,0
+Pika,"Pika,피카,영상생성ai",2,1,0
+Luma,"Luma,루마ai,영상생성ai",2,1,0
+Kaiber,"Kaiber,카이버,뮤직비디오ai",2,1,0
+ElevenLabs,"ElevenLabs,일레븐랩스,음성ai",2,1,0
+PlayHT,"PlayHT,플레이ht,음성ai",2,1,0
+ResembleAI,"ResembleAI,리셈블ai,보이스클로닝",2,1,0
+Jasper,"Jasper,재스퍼,카피라이팅ai",2,1,0
+Copy.ai,"Copy.ai,카피ai,글쓰기ai",2,1,0
+Writesonic,"Writesonic,라이트소닉,글쓰기ai",2,1,0
+Replit,"Replit,리플릿,웹코딩ai",2,1,0
+Windsurf,"Windsurf,윈드서프,ai코딩",3,2,1
+Lovable,"Lovable,러버블,웹생성ai",2,1,0
+n8n,"n8n,자동화워크플로우",2,1,0
+Make,"Make,메이크,자동화ai",2,1,0
+Zapier,"Zapier,재피어,자동화ai",2,1,0
+Flowise,"Flowise,플로와이즈,llm워크플로우",2,2,0
+Microsoft Copilot,"Microsoft Copilot,코파일럿,msoai",2,1,0
+Claude,"Claude,클로드,앤스로픽",2,1,0
+Grok,"Grok,그록,x ai",2,1,0
+DeepSeek,"DeepSeek,딥시크,코딩ai",2,1,0
+Clova X Naver,"Clova X,클로바x,네이버ai",2,1,0
+Kakao Kanana,"Kakao Kanana,카나나,카카오ai",2,1,0
+Perplexity,"Perplexity,퍼플렉시티,검색ai",2,1,0
+Luma Dream Machine,"Luma Dream Machine,드림머신,비디오생성",2,1,0
+
