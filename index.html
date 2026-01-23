@@ -68,9 +68,9 @@
         </div>
 
         <div class="bg-white rounded-[2.5rem] p-8 shadow-2xl shadow-slate-200/60 mb-10 border border-white/50">
-            <h2 class="text-sm font-extrabold text-slate-800 mb-5 flex items-center">
-                <span class="w-1.5 h-4 bg-red-600 rounded-full mr-3"></span>
-                사용하는 소프트웨어를 콤마(,)로 구분해 입력 (최대 3개)해주세요.
+            <h2 class="text-sm font-extrabold text-slate-800 mb-5 flex items-start">
+                <span class="w-1.5 h-4 bg-red-600 rounded-full mr-3 mt-1 flex-shrink-0"></span>
+                <span>사용하는 소프트웨어를 입력하세요.<br><span class="text-[11px] text-slate-400 font-bold">※ 여러 개 입력 시 콤마(,)로 구분하세요.(최대 3개 입력)</span></span>
             </h2>
             <div class="relative">
                 <textarea id="userInput" rows="2" 
@@ -95,6 +95,13 @@
             <p class="text-slate-500 font-bold leading-relaxed text-sm">소프트웨어별 '최소 사양' 모델과<br>'여유로운 권장 사양' 모델을 찾아드립니다.</p>
         </div>
     </main>
+
+    <footer class="text-center py-12 pb-20 opacity-40">
+        <a href="https://m.blog.naver.com/zell80" target="_blank" class="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-slate-600 transition-all font-medium">
+            <span>Made by</span>
+            <span class="font-bold tracking-wider border-b border-slate-300">minsugoon</span>
+        </a>
+    </footer>
 
     <script>
         let minSwDict = null, recSwDict = null, cachedLaptopData = null;
@@ -187,6 +194,12 @@
             if (!recSwDict) recSwDict = await loadCSV('recommend_sw_data.csv');
             const laptopData = await loadLaptopData();
 
+            if (!minSwDict || !recSwDict || !laptopData) {
+                document.getElementById('statusIndicator').classList.add('hidden');
+                alert("CSV 데이터를 불러올 수 없습니다. 파일명을 확인하세요.");
+                return;
+            }
+
             const tags = val.split(',').map(s => s.trim().toLowerCase()).filter(s => s !== "").slice(0, 3);
             let reqMin = { cpu: 0, ram: 0, gpu: 0, tagNames: [] };
             let reqRec = { cpu: 0, ram: 0, gpu: 0, tagNames: [] };
@@ -213,7 +226,7 @@
 
             if (!found) {
                 document.getElementById('statusIndicator').classList.add('hidden');
-                document.getElementById('resultContainer').innerHTML = `<div class="bg-white p-20 rounded-[3rem] text-center text-slate-500 font-bold shadow-xl">정보를 찾을 수 없습니다. 다시 입력해 주세요.</div>`;
+                document.getElementById('resultContainer').innerHTML = `<div class="bg-white p-20 rounded-[3rem] text-center text-slate-500 font-bold shadow-xl border border-white">정보를 찾을 수 없습니다. 다시 입력해 주세요.</div>`;
                 return;
             }
 
@@ -284,14 +297,7 @@
                         
                         <div class="my-10 h-64"><canvas id="chart-${i}"></canvas></div>
                         
-                        <div class="bg-slate-50 rounded-[2.5rem] p-7 border border-slate-100/50 text-left">
-                            <div class="flex justify-between items-center mb-6">
-                                <div class="flex flex-col">
-                                    <span class="text-xs text-slate-300 line-through font-black decoration-red-400/50">${item.PRICE}원</span>
-                                    <span class="text-2xl font-black text-red-600 tracking-tighter">${item.SALE_PRICE}원</span>
-                                </div>
-                                <div class="bg-red-600/10 text-red-600 text-xs font-black px-3 py-1.5 rounded-xl border border-red-600/20 text-center font-bold">인증점 혜택가</div>
-                            </div>
+                        <div class="bg-slate-50 rounded-[2.5rem] p-7 border border-slate-100/50">
                             <a href="${item.URL}" target="_blank" class="btn-interactive w-full bg-slate-900 text-white py-5 rounded-[1.5rem] font-bold text-base flex items-center justify-center gap-3 shadow-xl">
                                 상품 상세 바로가기 <i class="fas fa-chevron-right text-xs opacity-40"></i>
                             </a>
@@ -322,12 +328,5 @@
             });
         }
     </script>
-    <footer class="text-center py-12 pb-20 opacity-40">
-        <a href="https://m.blog.naver.com/zell80" target="_blank" class="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-slate-600 transition-all font-medium">
-            <span>Made by</span>
-            <span class="font-bold tracking-wider border-b border-slate-300">minsugoon</span>
-        </a>
-    </footer>
 </body>
-
 </html>
